@@ -1,8 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:japanino/Core/utils/assets_Images.dart';
 import 'package:japanino/Core/utils/color_manager.dart';
 import 'package:japanino/config/Routes/routes.dart';
@@ -19,7 +17,7 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      context.go(Routes.homePage);
+      Navigator.pushReplacementNamed(context, Routes.homePage);
     });
   }
 

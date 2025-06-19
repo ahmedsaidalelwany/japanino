@@ -1,75 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:japanino/Features/Pages/Colors/Ui/colors.dart';
 import 'package:japanino/Features/Pages/Family/Ui/family.dart';
 import 'package:japanino/Features/Pages/Home/Ui/home.dart';
 import 'package:japanino/Features/Pages/Number/Ui/number.dart';
 import 'package:japanino/Features/Pages/Phrases/Ui/phrases.dart';
+import 'package:japanino/Features/Pages/Splash/ui/splash.dart';
 import 'package:japanino/config/Routes/routes.dart';
-import '../../Features/Pages/Splash/ui/splash.dart';
 
-final getRouter = GoRouter(
-  initialLocation: Routes.Spalsh,
-  routes: [
-    GoRoute(
-      path: Routes.Spalsh,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: Splash(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(opacity: animation, child: child);
-        },
-      ),
-    ),
-    GoRoute(
-      path: Routes.pharses_Page,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: Phrases(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(opacity: animation, child: child);
-        },
-      ),
-    ),
-    GoRoute(
-      path: Routes.Color_Page,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: Colors_Pages(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(opacity: animation, child: child);
-        },
-      ),
-    ),
-    GoRoute(
-      path: Routes.Family_Page,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: Family(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(opacity: animation, child: child);
-        },
-      ),
-    ),
-    GoRoute(
-      path: Routes.homePage,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: Home(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(opacity: animation, child: child);
-        },
-      ),
-    ),
-    GoRoute(
-      path: Routes.Number_Page,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: Number(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(opacity: animation, child: child);
-        },
-      ),
-    ),
-  ],
-);
+class RouteManager {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case Routes.Spalsh:
+        return _buildFadeRoute(Splash());
+      case Routes.pharses_Page:
+        return _buildFadeRoute(const Phrases());
+      case Routes.Color_Page:
+        return _buildFadeRoute(const Colors_Pages());
+      case Routes.Family_Page:
+        return _buildFadeRoute(const Family());
+      case Routes.homePage:
+        return _buildFadeRoute(const Home());
+      case Routes.Number_Page:
+        return _buildFadeRoute(const Number());
+      default:
+        return _buildFadeRoute(const Home());
+    }
+  }
+
+  static PageRouteBuilder _buildFadeRoute(Widget page) {
+    return PageRouteBuilder(
+      pageBuilder: (_, __, ___) => page,
+      transitionsBuilder: (_, animation, __, child) {
+        return FadeTransition(opacity: animation, child: child);
+      },
+      transitionDuration: const Duration(milliseconds: 300),
+    );
+  }
+}
