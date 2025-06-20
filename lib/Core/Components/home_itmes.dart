@@ -35,8 +35,7 @@ class HomeItmes extends StatelessWidget {
           title: Strings.Phrases,
           onTap: () {
             Navigator.pushNamed(context, Routes.pharses_Page);
-          },
-        ),
+          },        ),
         SizedBox(),
         CopyRight(),
       ],

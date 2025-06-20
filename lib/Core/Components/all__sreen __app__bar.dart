@@ -21,6 +21,7 @@ class CustomAll_Appbar extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(16.r)),
       ),
+      automaticallyImplyLeading: false,
     );
   }
 }

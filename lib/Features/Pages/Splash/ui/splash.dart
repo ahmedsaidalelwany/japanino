@@ -17,7 +17,11 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, Routes.homePage);
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        Routes.homePage,
+            (route) => false,
+      );
     });
   }
 
