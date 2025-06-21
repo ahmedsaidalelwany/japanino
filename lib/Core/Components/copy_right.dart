@@ -26,7 +26,7 @@ class CopyRight extends StatelessWidget {
           ],
         ),
         Image.asset(
-          Logos.banner,
+          ImageAssets.banner,
           height: 20.h,
           width: double.infinity,
           color: ColorManager.grey,

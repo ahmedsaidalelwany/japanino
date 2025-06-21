@@ -15,7 +15,7 @@ class RouteManager {
       case Routes.pharses_Page:
         return _buildFadeRoute(const Phrases());
       case Routes.Color_Page:
-        return _buildFadeRoute(const Colors_Pages());
+        return _buildFadeRoute(const ColorsPage());
       case Routes.Family_Page:
         return _buildFadeRoute(const Family());
       case Routes.homePage:

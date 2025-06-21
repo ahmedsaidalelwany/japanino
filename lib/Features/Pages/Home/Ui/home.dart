@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
       backgroundColor: ColorManager.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70.h),
-        child: CustomAppbar(AssetsImage: Logos.banner),
+        child: CustomAppbar(AssetsImage: ImageAssets.banner),
       ),
       body: Padding(
         padding: const EdgeInsets.only(bottom: 22, left: 8, right: 8, top: 22),

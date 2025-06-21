@@ -31,7 +31,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/family_members/
-    - assets/images/colors/
     - assets/images/Logos/
+    - assets/images/colors/
     - assets/images/numbers/
+    - assets/images/family_images/

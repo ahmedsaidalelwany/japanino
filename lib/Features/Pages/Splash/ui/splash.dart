@@ -20,7 +20,7 @@ class _SplashState extends State<Splash> {
       Navigator.pushNamedAndRemoveUntil(
         context,
         Routes.homePage,
-            (route) => false,
+        (route) => false,
       );
     });
   }
@@ -31,7 +31,7 @@ class _SplashState extends State<Splash> {
       backgroundColor: ColorManager.white,
       body: Center(
         child: Image(
-          image: AssetImage(Logos.logo),
+          image: AssetImage(ImageAssets.logo),
           width: 200.w,
           height: 200.w,
         ),
